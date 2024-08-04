@@ -1,0 +1,36 @@
+<%- include("./partials/header.ejs") %>
+    <div class="container">
+        <% if (locals.content && content.length>0 && locals.title && title.length>0) {
+            
+            for (let index = content.length -1; index >= 0 ; index--) {%>
+            
+        
+        <div class="container my-5 ">
+            <div class="p-4 text-center shadow bg-body-tertiary rounded-4 d-flex flex-column justify-content-betwen">
+               
+                <h3 class="text-body-emphasis"><%=locals.title[index]%></h3>
+                <p class="lead overflow-y-hidden">
+                    
+                        <%= content[index] %>
+                </p>
+                <div class="container p-0 m-0 d-flex justify-content-center">
+                    <form action="/edit" method="POST" class="mx-2">
+                        <input type="hidden" name="index" value = "<%=index%>">
+                        <input type="submit" name="edit" class="btn btn-primary align-self-end" value="Edit">
+                    </form>
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="index" value = "<%=index%>">
+                        <input type="submit" name="delete" class="btn btn-primary align-self-end" value="Delete">
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+      <%};}
+      else{%>
+        <h1 class="d-flex flex-row justify-content-center align-items-center" style="height: 90vh;">Nothing to Show</h1>
+        
+      <%} %>
+        
+
+    </div>

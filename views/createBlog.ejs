@@ -1,0 +1,25 @@
+
+<%- include("./partials/header.ejs") %>
+
+<div class="container-fluid m-0 p-0 d-flex flex-row justify-content-center align-items-center " id="body-container" >
+    <div class="text-center bg-body-tertiary rounded-4 col-11 d-flex flex-row justify-content-center align-items-center shadow-lg" id="createBlogContainer">
+     
+      <form <% if (locals.edit) {%>action="/edited"<% }else{ %> action="/submit"<% } %> method="POST" class="d-flex flex-column justify-content-around col-11">
+        <label for="content" class="lead col-12">Enter Your Blog</label>
+
+        <%if (locals.newTitle) { %>
+        <input type="text" name="title" id="blog-title" placeholder="TITLE" required value="<%=newTitle%>">
+        <%}else{%><input type="text" name="title" id="blog-title" placeholder="TITLE" required ><%} %>
+
+            <%if (locals.newContent) { %>
+        <textarea name="newBlog" class="col-12 rounded-4" rows="16" required placeholder="I want to say..."><%=newContent%></textarea>
+        <% } else{%> <textarea name="newBlog" class="col-12 rounded-4" rows="16" required placeholder="I want to say..."></textarea><%} %>
+
+        <%if (locals.editButton) { %>
+            <input type="submit" class="btn btn-primary align-self-end" value="<%=editButton%>">
+            <%}else{%><input type="submit" class="btn btn-primary align-self-end" value="Create Blog"><%} %>
+        
+        
+      </form>
+    </div>
+  </div>

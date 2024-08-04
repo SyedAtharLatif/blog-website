@@ -1,0 +1,33 @@
+div#header{
+  background-color: #212529;
+}
+
+div>p{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+}
+/* %if (locals.newContent) { %>
+  <%=newContent %><% } %> */
+form{
+  height: 90%;
+}
+
+#createBlogContainer{
+height: 80%;
+}
+textarea,input[type="text"]{
+  border: 0px;
+}
+
+input[type="submit"]{
+  max-width: 120px;
+  min-width: 100px;
+}
+
+#body-container{
+  height: 90vh;
+  width: 100%;
+}
